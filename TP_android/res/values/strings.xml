@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TP_android</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="jee">JEE</string>
+    <string name="android">Android</string>
+    <string name="choix">Choix</string>
+    <string name="title_activity_jouer">JouerActivity</string>
+    <string name="title_activity_evaluer">EvaluerActivity</string>
+    <string name="title_activity_propos">ProposActivity</string>
+    <string name="title_activity_statistiques">StatistiquesActivity</string>
+    <string name="nombre">le nombre de parties jouées</string>
+    <string name="Mnotes">la moyenne des notes</string>
+    <string name="Meva">la moyenne des évaluations</string>
+    <string name="retour">Retour</string>
+    <string name="evaluer">Evaluer</string>
+    <string name="MyName">Shen Shaoyi</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="title_activity_android">AndroidActivity</string>
+
+</resources>
