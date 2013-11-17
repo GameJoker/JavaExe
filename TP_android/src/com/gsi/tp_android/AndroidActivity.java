@@ -2,6 +2,8 @@ package com.gsi.tp_android;
 
 import java.util.List;
 
+import Base.BDDsujet;
+import Base.sujet;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -14,7 +16,6 @@ import android.widget.TextView;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 public class AndroidActivity extends Activity implements OnClickListener {
-	Androidsujet asujet;
 	sujet s;
 	private RadioGroup rg;
 	RadioButton r1;
@@ -23,6 +24,7 @@ public class AndroidActivity extends Activity implements OnClickListener {
 	RadioButton r4;
 	Button next;
 	Variables AppVariables ;
+	BDDsujet bddsujet;
 	float text;
 	CharSequence c;
 	int i;
@@ -30,11 +32,12 @@ public class AndroidActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_jouer);
-		asujet =new Androidsujet();
-		List<sujet> Jsujet = asujet.getAsujet();
+		bddsujet = new BDDsujet(this);
+		bddsujet.open();
+//		bddsujet.ajoutQuestions();
 		AppVariables = ((Variables)getApplicationContext());	
 		i=AppVariables.getTitre();
-		s = Jsujet.get(i);		
+		s = bddsujet.getSujetparID(i+4);			
 		rg = (RadioGroup)findViewById(R.id.radioGroup1);
 		TextView tw = (TextView)findViewById(R.id.sujet);
 		tw.setText(s.getTitre());
@@ -48,11 +51,11 @@ public class AndroidActivity extends Activity implements OnClickListener {
 		r4 = (RadioButton)findViewById(R.id.radio3);
 		r4.setText(Jchoix.get(3));
 		next = (Button)findViewById(R.id.back);
-		if(i<3)
+		if(i<7)
 		{
 			next.setText("next");
 		}
-		if(i==3)
+		if(i==7)
 		{
 			next.setText("Fini");
 		}
@@ -78,6 +81,7 @@ public class AndroidActivity extends Activity implements OnClickListener {
 			}
 			
 		});
+		bddsujet.close();
 	}
 	public void onClick(View e) {
 		// TODO Auto-generated method stub

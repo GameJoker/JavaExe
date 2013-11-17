@@ -2,6 +2,8 @@ package com.gsi.tp_android;
 
 import java.util.List;
 
+import Base.BDDsujet;
+import Base.sujet;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -14,7 +16,6 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 public class JouerActivity extends Activity implements OnClickListener{
-	JEEsujet jsujet;
 	sujet s;
 	private RadioGroup rg;
 	RadioButton r1;
@@ -25,16 +26,16 @@ public class JouerActivity extends Activity implements OnClickListener{
 	Variables AppVariables ;
 	float text;
 	CharSequence c;
+	BDDsujet bddsujet = new BDDsujet(this);
 	int i;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_jouer);
-		jsujet = new JEEsujet();
-		List<sujet> Jsujet = jsujet.getJsujet();
+		bddsujet.open();
 		AppVariables = ((Variables)getApplicationContext());	
 		i=AppVariables.getTitre();
-		s = Jsujet.get(i);		
+		s = bddsujet.getSujetparID(i);		
 		rg = (RadioGroup)findViewById(R.id.radioGroup1);
 		TextView tw = (TextView)findViewById(R.id.sujet);
 		tw.setText(s.getTitre());
@@ -78,6 +79,7 @@ public class JouerActivity extends Activity implements OnClickListener{
 			}
 			
 		});
+		bddsujet.close();
 		
 	}
 	public void onClick(View e) {
@@ -102,6 +104,7 @@ public class JouerActivity extends Activity implements OnClickListener{
 				AppVariables.setTitre();
 				Intent fini = new Intent(this,NoteActivity.class );
 				startActivity(fini);
+				bddsujet.close();
 				finish();
 			}
 		}

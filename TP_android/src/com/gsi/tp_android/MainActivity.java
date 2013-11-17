@@ -17,13 +17,16 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		SubMenu m = menu.addSubMenu("Jouer");
+/*		SubMenu m = menu.addSubMenu("Jouer");
 		m.add(Menu.NONE, 1, Menu.NONE, "JEE");
-		m.add(Menu.NONE, 2, Menu.NONE, "Android");
+		m.add(Menu.NONE, 2, Menu.NONE, "Android");*/
+		menu.add(0, 1, 0, "JEE");
+		menu.add(0, 2, 0, "Android");
 		menu.add(0, 3, 0, "Evaluer");
 		menu.add(0, 4, 0, "Statistiques");
 		menu.add(0, 5, 0, "A propos");
-		menu.add(0, 6, 0, "Quitter");
+		menu.add(0, 6, 0, "Map");
+		menu.add(0, 7, 0, "Quitter");
 		return true;
 	}
 
@@ -62,6 +65,12 @@ public class MainActivity extends Activity {
 			finish();
 			break;
 		case 6:
+			setTitle("Map");
+			Intent Map = new Intent(this,MapActivity.class );
+			startActivity(Map);
+			finish();
+			break;
+		case 7:
 			System.exit(0);
 			break;
 		}

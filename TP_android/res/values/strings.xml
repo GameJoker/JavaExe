@@ -19,5 +19,6 @@
     <string name="MyName">Shen Shaoyi</string>
     <string name="title_activity_note">NoteActivity</string>
     <string name="title_activity_android">AndroidActivity</string>
+    <string name="title_activity_map">MapActivity</string>
 
 </resources>

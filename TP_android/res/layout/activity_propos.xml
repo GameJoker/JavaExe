@@ -9,18 +9,10 @@
     tools:context=".ProposActivity" >
 
     <TextView
+        android:id="@+id/pay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/MyName" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/pretour"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/MyName"
-        android:src="@drawable/myphoto1" />
 
     <Button
         android:id="@+id/pretour"
@@ -29,5 +21,33 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="@string/retour" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pretour"
+        android:layout_toLeftOf="@+id/pretour"
+        android:contentDescription="@string/MyName"
+        android:src="@drawable/myphoto1" />
+
+    <Button
+        android:id="@+id/buttonSite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/pay"
+        android:layout_marginRight="14dp"
+        android:text="@string/hello_world" />
+
+    <TextView
+        android:id="@+id/textSite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/buttonSite"
+        android:layout_below="@+id/buttonSite"
+        android:layout_marginTop="75dp"
+        android:text="@string/hello_world"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
